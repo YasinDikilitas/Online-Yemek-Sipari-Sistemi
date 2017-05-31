@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+@model StajProjesi.Models.Kullanici
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_IsimController</title>
+</head>
+<body>
+    @if (Session["Admin"] == null || Session["Admin"].ToString() != "1")
+    {
+        <div class="nav navbar-nav wow fadeInLeft animated" data-wow-delay=".5s">
+            <p>Yemek Kocaeli ye hoşgeldiniz.<a href="/Kullanici/">Kayıt </a> ya da <a href="/Kullanici/Giris">Giriş</a></p>
+        </div>
+    }
+    else
+    {
+
+        <div class="nav navbar-nav wow fadeInLeft animated" data-wow-delay=".5s">
+            <p>Yemek Kocaeli ye hoşgeldiniz.</p>
+        </div>
+    }
+
+
+
+
+</body>
+</html>

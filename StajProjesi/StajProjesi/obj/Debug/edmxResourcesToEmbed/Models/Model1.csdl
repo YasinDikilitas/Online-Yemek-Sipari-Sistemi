@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StajProjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Adre">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adres" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kullanicis" Relationship="Self.FK_Kullanici_Adres" FromRole="Adres" ToRole="Kullanici" />
+  </EntityType>
+  <EntityType Name="Indirim">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Miktar" Type="Int32" />
+    <NavigationProperty Name="Urunlers" Relationship="Self.FK_Urunler_Indirim" FromRole="Indirim" ToRole="Urunler" />
+  </EntityType>
+  <EntityType Name="KartBilgisi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KartNo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CVC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Skt" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Kullanicis" Relationship="Self.FK_Kullanici_KartBilgisi" FromRole="KartBilgisi" ToRole="Kullanici" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="adresid" Type="Int32" />
+    <Property Name="kartid" Type="Int32" />
+    <Property Name="Aktiflik_durumu" Type="Boolean" />
+    <NavigationProperty Name="Adre" Relationship="Self.FK_Kullanici_Adres" FromRole="Kullanici" ToRole="Adres" />
+    <NavigationProperty Name="KartBilgisi" Relationship="Self.FK_Kullanici_KartBilgisi" FromRole="Kullanici" ToRole="KartBilgisi" />
+    <NavigationProperty Name="SatısBilgi" Relationship="Self.FK_SatısBilgi_Kullanici" FromRole="Kullanici" ToRole="SatısBilgi" />
+    <NavigationProperty Name="SepetUrunlers" Relationship="Self.FK_SepetUrunler_Kullanici" FromRole="Kullanici" ToRole="SepetUrunler" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kullanici" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Urunlers" Relationship="Self.FK_Urunler_Login" FromRole="Login" ToRole="Urunler" />
+  </EntityType>
+  <EntityType Name="Manset">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="MBaslik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Maciklama" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="Mresimyol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MesajBox">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Urun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mesaj" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Resimler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Resimyolu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Resimid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SatısBilgi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SatisTutari" Type="Int32" />
+    <Property Name="kullaniciid" Type="Int32" />
+    <NavigationProperty Name="Kullanici" Relationship="Self.FK_SatısBilgi_Kullanici" FromRole="SatısBilgi" ToRole="Kullanici" />
+  </EntityType>
+  <EntityType Name="SepetBilgi">
+    <Key>
+      <PropertyRef Name="int" />
+    </Key>
+    <Property Name="int" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sepetdurum" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Urunlers" Relationship="Self.FK_Urunler_SepetBilgis" FromRole="SepetBilgis" ToRole="Urunler" />
+  </EntityType>
+  <EntityType Name="SepetUrunler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="UrunAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UrunFiyat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="kullaniciid" Type="Int32" />
+    <Property Name="urunlerid" Type="Int32" />
+    <NavigationProperty Name="Kullanici" Relationship="Self.FK_SepetUrunler_Kullanici" FromRole="SepetUrunler" ToRole="Kullanici" />
+    <NavigationProperty Name="Urunler" Relationship="Self.FK_SepetUrunler_Urunler" FromRole="SepetUrunler" ToRole="Urunler" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ResimYol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fiyat" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Kategori" Type="Int32" />
+    <Property Name="Resimid" Type="Int32" />
+    <Property Name="Yöneticiid" Type="Int32" />
+    <Property Name="Indirimid" Type="Int32" />
+    <Property Name="Sepetid" Type="Int32" />
+    <NavigationProperty Name="Indirim" Relationship="Self.FK_Urunler_Indirim" FromRole="Urunler" ToRole="Indirim" />
+    <NavigationProperty Name="Login" Relationship="Self.FK_Urunler_Login" FromRole="Urunler" ToRole="Login" />
+    <NavigationProperty Name="SepetBilgi" Relationship="Self.FK_Urunler_SepetBilgis" FromRole="Urunler" ToRole="SepetBilgis" />
+    <NavigationProperty Name="SepetUrunlers" Relationship="Self.FK_SepetUrunler_Urunler" FromRole="Urunler" ToRole="SepetUrunler" />
+  </EntityType>
+  <Association Name="FK_Kullanici_Adres">
+    <End Role="Adres" Type="Self.Adre" Multiplicity="0..1" />
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adres">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Kullanici">
+        <PropertyRef Name="adresid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urunler_Indirim">
+    <End Role="Indirim" Type="Self.Indirim" Multiplicity="0..1" />
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Indirim">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="Indirimid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kullanici_KartBilgisi">
+    <End Role="KartBilgisi" Type="Self.KartBilgisi" Multiplicity="0..1" />
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KartBilgisi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Kullanici">
+        <PropertyRef Name="kartid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SatısBilgi_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+    <End Role="SatısBilgi" Type="Self.SatısBilgi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SatısBilgi">
+        <PropertyRef Name="kullaniciid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SepetUrunler_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+    <End Role="SepetUrunler" Type="Self.SepetUrunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SepetUrunler">
+        <PropertyRef Name="kullaniciid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urunler_Login">
+    <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="Yöneticiid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urunler_SepetBilgis">
+    <End Role="SepetBilgis" Type="Self.SepetBilgi" Multiplicity="0..1" />
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SepetBilgis">
+        <PropertyRef Name="int" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="Sepetid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SepetUrunler_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+    <End Role="SepetUrunler" Type="Self.SepetUrunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SepetUrunler">
+        <PropertyRef Name="urunlerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StajProjeEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Adres" EntityType="Self.Adre" />
+    <EntitySet Name="Indirims" EntityType="Self.Indirim" />
+    <EntitySet Name="KartBilgisis" EntityType="Self.KartBilgisi" />
+    <EntitySet Name="Kullanicis" EntityType="Self.Kullanici" />
+    <EntitySet Name="Logins" EntityType="Self.Login" />
+    <EntitySet Name="Mansets" EntityType="Self.Manset" />
+    <EntitySet Name="MesajBoxes" EntityType="Self.MesajBox" />
+    <EntitySet Name="Resimlers" EntityType="Self.Resimler" />
+    <EntitySet Name="SatısBilgi" EntityType="Self.SatısBilgi" />
+    <EntitySet Name="SepetBilgis" EntityType="Self.SepetBilgi" />
+    <EntitySet Name="SepetUrunlers" EntityType="Self.SepetUrunler" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Urunlers" EntityType="Self.Urunler" />
+    <AssociationSet Name="FK_Kullanici_Adres" Association="Self.FK_Kullanici_Adres">
+      <End Role="Adres" EntitySet="Adres" />
+      <End Role="Kullanici" EntitySet="Kullanicis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urunler_Indirim" Association="Self.FK_Urunler_Indirim">
+      <End Role="Indirim" EntitySet="Indirims" />
+      <End Role="Urunler" EntitySet="Urunlers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kullanici_KartBilgisi" Association="Self.FK_Kullanici_KartBilgisi">
+      <End Role="KartBilgisi" EntitySet="KartBilgisis" />
+      <End Role="Kullanici" EntitySet="Kullanicis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SatısBilgi_Kullanici" Association="Self.FK_SatısBilgi_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanicis" />
+      <End Role="SatısBilgi" EntitySet="SatısBilgi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SepetUrunler_Kullanici" Association="Self.FK_SepetUrunler_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanicis" />
+      <End Role="SepetUrunler" EntitySet="SepetUrunlers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urunler_Login" Association="Self.FK_Urunler_Login">
+      <End Role="Login" EntitySet="Logins" />
+      <End Role="Urunler" EntitySet="Urunlers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urunler_SepetBilgis" Association="Self.FK_Urunler_SepetBilgis">
+      <End Role="SepetBilgis" EntitySet="SepetBilgis" />
+      <End Role="Urunler" EntitySet="Urunlers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SepetUrunler_Urunler" Association="Self.FK_SepetUrunler_Urunler">
+      <End Role="Urunler" EntitySet="Urunlers" />
+      <End Role="SepetUrunler" EntitySet="SepetUrunlers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

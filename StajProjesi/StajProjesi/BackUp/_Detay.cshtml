@@ -1,0 +1,98 @@
+﻿@model StajProjesi.Models.Urunler
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script defer src="/Content/js/jquery.flexslider.js"></script>
+<link rel="stylesheet" href="/Content/css/flexslider1.css" type="text/css" media="screen" />
+<script>
+// Can also be used with $(document).ready()
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    controlNav: "thumbnails"
+  });
+});
+
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="single">
+        <div class="container">
+            <div class="single-info">
+                <div class="col-md-6 single-top wow fadeInLeft animated" data-wow-delay=".5s">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            @{
+                                StajProjesi.Models.StajProjeEntities2 db = new StajProjesi.Models.StajProjeEntities2();
+                                var resimlerr = db.Resimlers.Where(x => x.Resimid == Model.Resimid);
+
+                                foreach (var item in resimlerr)
+                                {
+                                    <li data-thumb="@item.Resimyolu">
+                                        <div class="thumb-image"><img src="@item.Resimyolu" data-imagezoom="true class="img-responsive" alt="" /></div>
+
+
+                                    </li>
+
+                                }
+
+
+                            }
+
+
+
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 single-top-left simpleCart_shelfItem wow fadeInRight animated" data-wow-delay=".5s">
+
+                    <h3>@Model.Baslik</h3>
+                    @if (Model.Indirimid == null)
+                {
+                        <h6 class="item_price">@Model.Fiyat TL</h6>
+
+
+                    }
+                    else
+                    {
+                        <h6 class="item_price">@((Double.Parse(Model.Fiyat)) - (((Double.Parse(Model.Fiyat) / 100)) * (Double.Parse((Model.Indirim.Miktar).ToString())))) TL</h6>
+                    }
+                    <p>@Model.Aciklama</p>
+
+
+                    <div class="clearfix"> </div>
+                    <div class="quantity">
+                        <p class="qty"> Qty :  </p><input min="1" type="number" value="1" class="item_quantity">
+                    </div>
+
+                    <div class="btn_form">
+                        @Html.HiddenFor(a => a.id);
+                        <input type="submit" class="item_add" item_add" value="Sepete Ekle" name="SEND">
+                    </div>
+
+                </div>
+
+
+                <div class="clearfix"> </div>
+            </div>
+
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+                                }
+
+<div>
+    <center>@Html.ActionLink("Ana Sayfa", "Index")</center>
+</div>

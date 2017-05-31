@@ -1,0 +1,58 @@
+﻿@model StajProjesi.Models.Urunler
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Yonetim.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Urunler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Baslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Baslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResimYol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResimYol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Indirim.Miktar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Indirim.Miktar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "/Yonetim/Edit/", new { /*id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "/Yonetim/Yonetim/")
+</p>

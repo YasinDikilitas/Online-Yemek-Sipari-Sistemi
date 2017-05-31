@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c9bf37ec8e8b444da61c291e3583d5e8" Name="Diagram1">
+        <EntityTypeShape EntityType="StajProjeModel.Adre" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StajProjeModel.Indirim" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StajProjeModel.KartBilgisi" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StajProjeModel.Kullanici" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="StajProjeModel.Login" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StajProjeModel.Manset" Width="1.5" PointX="2.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StajProjeModel.MesajBox" Width="1.5" PointX="5.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StajProjeModel.Resimler" Width="1.5" PointX="7.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StajProjeModel.SatısBilgi" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StajProjeModel.SepetBilgi" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StajProjeModel.SepetUrunler" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StajProjeModel.sysdiagram" Width="1.5" PointX="7.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StajProjeModel.Urunler" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="StajProjeModel.FK_Kullanici_Adres" ManuallyRouted="false" />
+        <AssociationConnector Association="StajProjeModel.FK_Urunler_Indirim" ManuallyRouted="false" />
+        <AssociationConnector Association="StajProjeModel.FK_Kullanici_KartBilgisi" ManuallyRouted="false" />
+        <AssociationConnector Association="StajProjeModel.FK_SatısBilgi_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="StajProjeModel.FK_SepetUrunler_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="StajProjeModel.FK_Urunler_Login" ManuallyRouted="false" />
+        <AssociationConnector Association="StajProjeModel.FK_Urunler_SepetBilgis" ManuallyRouted="false" />
+        <AssociationConnector Association="StajProjeModel.FK_SepetUrunler_Urunler" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

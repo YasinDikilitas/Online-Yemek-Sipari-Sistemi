@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StajProjeModelStoreContainer" CdmEntityContainer="StajProjeEntities2">
+    <EntitySetMapping Name="Adres">
+      <EntityTypeMapping TypeName="StajProjeModel.Adre">
+        <MappingFragment StoreEntitySet="Adres">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Indirims">
+      <EntityTypeMapping TypeName="StajProjeModel.Indirim">
+        <MappingFragment StoreEntitySet="Indirim">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KartBilgisis">
+      <EntityTypeMapping TypeName="StajProjeModel.KartBilgisi">
+        <MappingFragment StoreEntitySet="KartBilgisi">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="KartNo" ColumnName="KartNo" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+          <ScalarProperty Name="CVC" ColumnName="CVC" />
+          <ScalarProperty Name="Skt" ColumnName="Skt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanicis">
+      <EntityTypeMapping TypeName="StajProjeModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="adresid" ColumnName="adresid" />
+          <ScalarProperty Name="kartid" ColumnName="kartid" />
+          <ScalarProperty Name="Aktiflik_durumu" ColumnName="Aktiflik durumu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="StajProjeModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Kullanici" ColumnName="Kullanici" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mansets">
+      <EntityTypeMapping TypeName="StajProjeModel.Manset">
+        <MappingFragment StoreEntitySet="Manset">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="MBaslik" ColumnName="MBaslik" />
+          <ScalarProperty Name="Maciklama" ColumnName="Maciklama" />
+          <ScalarProperty Name="Mresimyol" ColumnName="Mresimyol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MesajBoxes">
+      <EntityTypeMapping TypeName="StajProjeModel.MesajBox">
+        <MappingFragment StoreEntitySet="MesajBox">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Urun" ColumnName="Urun" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resimlers">
+      <EntityTypeMapping TypeName="StajProjeModel.Resimler">
+        <MappingFragment StoreEntitySet="Resimler">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Resimyolu" ColumnName="Resimyolu" />
+          <ScalarProperty Name="Resimid" ColumnName="Resimid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SatısBilgi">
+      <EntityTypeMapping TypeName="StajProjeModel.SatısBilgi">
+        <MappingFragment StoreEntitySet="SatısBilgi">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="SatisTutari" ColumnName="SatisTutari" />
+          <ScalarProperty Name="kullaniciid" ColumnName="kullaniciid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SepetBilgis">
+      <EntityTypeMapping TypeName="StajProjeModel.SepetBilgi">
+        <MappingFragment StoreEntitySet="SepetBilgis">
+          <ScalarProperty Name="int" ColumnName="int" />
+          <ScalarProperty Name="sepetdurum" ColumnName="sepetdurum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SepetUrunlers">
+      <EntityTypeMapping TypeName="StajProjeModel.SepetUrunler">
+        <MappingFragment StoreEntitySet="SepetUrunler">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
+          <ScalarProperty Name="UrunFiyat" ColumnName="UrunFiyat" />
+          <ScalarProperty Name="kullaniciid" ColumnName="kullaniciid" />
+          <ScalarProperty Name="urunlerid" ColumnName="urunlerid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="StajProjeModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urunlers">
+      <EntityTypeMapping TypeName="StajProjeModel.Urunler">
+        <MappingFragment StoreEntitySet="Urunler">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="ResimYol" ColumnName="ResimYol" />
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+          <ScalarProperty Name="Kategori" ColumnName="Kategori" />
+          <ScalarProperty Name="Resimid" ColumnName="Resimid" />
+          <ScalarProperty Name="Yöneticiid" ColumnName="Yöneticiid" />
+          <ScalarProperty Name="Indirimid" ColumnName="Indirimid" />
+          <ScalarProperty Name="Sepetid" ColumnName="Sepetid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

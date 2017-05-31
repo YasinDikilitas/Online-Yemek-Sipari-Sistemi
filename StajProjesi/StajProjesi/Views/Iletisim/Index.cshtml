@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="contact">
+    <div class="container">
+        <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
+            <h3 class="title">How To <span> Bizi Bul</span></h3>
+            <p>Hem Ucuz Hem Kaliteli </p>
+        </div>
+        <iframe class="wow zoomIn animated animated" data-wow-delay=".5s" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57537.641430789925!2d-74.03215321337959!3d40.719122105634035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1456152197129" allowfullscreen=""></iframe>
+    </div>
+</div>
+<div class="address">
+    <!--address-->
+    <div class="container">
+        <div class="address-row">
+            <div class="col-md-6 address-left wow fadeInLeft animated" data-wow-delay=".5s">
+                <div class="address-grid">
+                    <h4 class="wow fadeIndown animated" data-wow-delay=".5s">Bize Ulaşın </h4>
+                    <form action="/Urunler/SatinAl/" method="post">
+                        <input class="wow fadeIndown animated" data-wow-delay=".6s" name="isim" type="text" placeholder="İsim" required="">
+                        <input class="wow fadeIndown animated" data-wow-delay=".7s" name="mail" type="text" placeholder="Email" required="">
+                        <input class="wow fadeIndown animated" data-wow-delay=".8s" name="telefon" type="text" placeholder="Telefon" required="">
+                        <input class="wow fadeIndown animated" data-wow-delay=".8s" name="telefon" type="text" placeholder="Konu" required="">
+                        <textarea class="wow fadeIndown animated" data-wow-delay=".8s" name="mesaj" placeholder="Mesaj" required=""></textarea>
+                        <input class="wow fadeIndown animated" data-wow-delay=".9s" type="submit" value="SEND">
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6 address-right">
+                <div class="address-info wow fadeInRight animated" data-wow-delay=".5s">
+                    <h4>Adresimiz</h4>
+                    <p>Sırrıpaşa Mh. Cavdar Cd. Girgin sk No:7 DERİNCE/Kocaeli</p>
+                </div>
+                <div class="address-info address-mdl wow fadeInRight animated" data-wow-delay=".7s">
+                    <h4>Telefon Numaralarımız </h4>
+                    <p>+222 111 333 4444</p>
+                    <p>+222 111 333 5555</p>
+                </div>
+                <div class="address-info wow fadeInRight animated" data-wow-delay=".6s">
+                    <h4>Mail Adreslerimiz</h4>
+                    <p><a href="mailto:yasindikilita94@gmail.com"> yasindikilita94@gmail.com</a></p>
+                    <p><a href="mailto:yasindikilita94@hotmail.com"> yasindikilita94@hotmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StajProjeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Adres">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="250" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Indirim">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Miktar" Type="int" />
+  </EntityType>
+  <EntityType Name="KartBilgisi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KartNo" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="AdSoyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CVC" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Skt" Type="date" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sifre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adresid" Type="int" />
+    <Property Name="kartid" Type="int" />
+    <Property Name="Aktiflik durumu" Type="bit" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kullanici" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Manset">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="MBaslik" Type="nvarchar" MaxLength="50" />
+    <Property Name="Maciklama" Type="nchar" MaxLength="200" />
+    <Property Name="Mresimyol" Type="ntext" />
+  </EntityType>
+  <EntityType Name="MesajBox">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Urun" Type="nvarchar" MaxLength="50" />
+    <Property Name="AdSoyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mesaj" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Resimler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Resimyolu" Type="ntext" />
+    <Property Name="Resimid" Type="int" />
+  </EntityType>
+  <EntityType Name="SatısBilgi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SatisTutari" Type="int" />
+    <Property Name="kullaniciid" Type="int" />
+  </EntityType>
+  <EntityType Name="SepetBilgis">
+    <Key>
+      <PropertyRef Name="int" />
+    </Key>
+    <Property Name="int" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sepetdurum" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SepetUrunler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="UrunAd" Type="nvarchar" MaxLength="50" />
+    <Property Name="UrunFiyat" Type="nvarchar" MaxLength="50" />
+    <Property Name="kullaniciid" Type="int" />
+    <Property Name="urunlerid" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Baslik" Type="nvarchar" MaxLength="20" />
+    <Property Name="Aciklama" Type="nvarchar" MaxLength="200" />
+    <Property Name="ResimYol" Type="ntext" />
+    <Property Name="Fiyat" Type="nvarchar" MaxLength="200" />
+    <Property Name="Kategori" Type="int" />
+    <Property Name="Resimid" Type="int" />
+    <Property Name="Yöneticiid" Type="int" />
+    <Property Name="Indirimid" Type="int" />
+    <Property Name="Sepetid" Type="int" />
+  </EntityType>
+  <Association Name="FK_Kullanici_Adres">
+    <End Role="Adres" Type="Self.Adres" Multiplicity="0..1" />
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adres">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Kullanici">
+        <PropertyRef Name="adresid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kullanici_KartBilgisi">
+    <End Role="KartBilgisi" Type="Self.KartBilgisi" Multiplicity="0..1" />
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KartBilgisi">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Kullanici">
+        <PropertyRef Name="kartid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SatısBilgi_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+    <End Role="SatısBilgi" Type="Self.SatısBilgi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SatısBilgi">
+        <PropertyRef Name="kullaniciid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SepetUrunler_Kullanici">
+    <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="0..1" />
+    <End Role="SepetUrunler" Type="Self.SepetUrunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanici">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SepetUrunler">
+        <PropertyRef Name="kullaniciid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SepetUrunler_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+    <End Role="SepetUrunler" Type="Self.SepetUrunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SepetUrunler">
+        <PropertyRef Name="urunlerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urunler_Indirim">
+    <End Role="Indirim" Type="Self.Indirim" Multiplicity="0..1" />
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Indirim">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="Indirimid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urunler_Login">
+    <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="Yöneticiid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urunler_SepetBilgis">
+    <End Role="SepetBilgis" Type="Self.SepetBilgis" Multiplicity="0..1" />
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SepetBilgis">
+        <PropertyRef Name="int" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="Sepetid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StajProjeModelStoreContainer">
+    <EntitySet Name="Adres" EntityType="Self.Adres" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Indirim" EntityType="Self.Indirim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KartBilgisi" EntityType="Self.KartBilgisi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Manset" EntityType="Self.Manset" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MesajBox" EntityType="Self.MesajBox" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Resimler" EntityType="Self.Resimler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SatısBilgi" EntityType="Self.SatısBilgi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SepetBilgis" EntityType="Self.SepetBilgis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SepetUrunler" EntityType="Self.SepetUrunler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urunler" EntityType="Self.Urunler" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Kullanici_Adres" Association="Self.FK_Kullanici_Adres">
+      <End Role="Adres" EntitySet="Adres" />
+      <End Role="Kullanici" EntitySet="Kullanici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kullanici_KartBilgisi" Association="Self.FK_Kullanici_KartBilgisi">
+      <End Role="KartBilgisi" EntitySet="KartBilgisi" />
+      <End Role="Kullanici" EntitySet="Kullanici" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SatısBilgi_Kullanici" Association="Self.FK_SatısBilgi_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="SatısBilgi" EntitySet="SatısBilgi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SepetUrunler_Kullanici" Association="Self.FK_SepetUrunler_Kullanici">
+      <End Role="Kullanici" EntitySet="Kullanici" />
+      <End Role="SepetUrunler" EntitySet="SepetUrunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SepetUrunler_Urunler" Association="Self.FK_SepetUrunler_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="SepetUrunler" EntitySet="SepetUrunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urunler_Indirim" Association="Self.FK_Urunler_Indirim">
+      <End Role="Indirim" EntitySet="Indirim" />
+      <End Role="Urunler" EntitySet="Urunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urunler_Login" Association="Self.FK_Urunler_Login">
+      <End Role="Login" EntitySet="Login" />
+      <End Role="Urunler" EntitySet="Urunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urunler_SepetBilgis" Association="Self.FK_Urunler_SepetBilgis">
+      <End Role="SepetBilgis" EntitySet="SepetBilgis" />
+      <End Role="Urunler" EntitySet="Urunler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
